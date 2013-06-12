@@ -1,0 +1,297 @@
+180,230
+evolutionary computation,28
+NLP,111
+adaptation,179
+family history,3
+ontologies,238
+adaptive control,3
+fault tolerance,70
+ontology,131
+aerospace,33
+finance,77
+open source,43
+agents,227
+formal methods,77
+operating systems,111
+agriculture,26
+FPGA,75
+optical,115
+AI,876
+fuzzy systems,31
+optimization,441
+algorithms,822
+games,132
+P2P,233
+algorithms and bioinformatics,0
+genealogy,1
+parallel computing,36
+ambient intelligence,44
+GIS,143
+parallel processing,8
+antennas,37
+graphics,208
+parallel programming,19
+applications,2577
+green computing,11
+pattern recognition,105
+architecture,2029
+grid,284
+pedagogy,18
+architectures,828
+grid computing,49
+performance,843
+art,3786
+HCI,106
+pervasive,408
+artificial intelligence,114
+health,509
+pervasive computing,111
+arts,190
+health informatics,8
+philosophy,43
+augmented reality,42
+healthcare,134
+photonics,24
+automata theory,11
+high performance computing,37
+physics,137
+automatic control,6
+history,101
+policy,257
+automation,206
+human computer interaction,25
+political science,5
+autonomic computing,31
+human-computer interaction,70
+politics,25
+big data,1
+humanitie,33
+power,531
+bioinformatics,153
+ICT,249
+power electronics,19
+biology,329
+image processing,146
+power engineering,10
+biomedical,160
+industrial,794
+privacy,552
+biomedical engineering,32
+industrial electronics,0
+programming,502
+biometrics,54
+industrial engineering,6
+programming languages,96
+biotechnology,30
+industry,1625
+propagation,81
+business,822
+industry applications,9
+psychology,76
+business intelligence,33
+informatics,692
+radar,34
+business management,3
+information,3415
+real-time,212
+chemistry,97
+information management,66
+recommender systems,41
+circuits,123
+information retrieval,217
+reliability,325
+civil engineering,9
+information science,42
+religion,11
+cloud,342
+information security,54
+remote sensing,48
+cloud computing,135
+information system,637
+requirements engineering,45
+cognitive science,54
+information systems,314
+research,4415
+collaboration,534
+information technology,109
+RFID,168
+communication,2905
+information theory,32
+robotics,190
+innovation,249
+safety,162
+compilers,81
+instrumentation,80
+science,1474
+complexity,300
+intelligent systems,67
+security,1193
+computation theory,0
+interaction,959
+semantic web,96
+computational biology,62
+interdisciplinary,240
+semantics,241
+computational intelligence,65
+internet,136
+semiconductor,56
+computational linguistics,57
+internet of things,3
+sensor networks,381
+computer,1992
+IR,604
+sensors,271
+computer architecture,40
+IT,1266
+services,1229
+computer engineering,33
+knowledge discovery,133
+signal processing,190
+computer graphics,54
+knowledge engineering,36
+simulation,481
+computer networks,32
+knowledge management,109
+SOA,129
+computer science,268
+knowledge representation,83
+social,1211
+computer security,22
+language,1184
+social computing,27
+computer vision,86
+lasers,17
+social media,46
+computers,163
+law,236
+social network analysis,32
+computing,2261
+learning,1072
+social networks,210
+CONFERENCE,188
+life sciences,29
+social science,117
+control,784
+linguistics,179
+social sciences,48
+cryptography,91
+linked data,17
+social web,5
+CSCW,26
+literature,78
+society,196
+cultural studies,4
+logic,1242
+sociology,45
+culture,214
+logistics,55
+soft computing,44
+cyber security,2
+machine learning,233
+software,1365
+cyber-physical systems,17
+machine translation,47
+software architecture,57
+cybernetics,19
+management,2044
+software engineering,249
+data management,208
+manufacturing,147
+software testing,18
+data mining,364
+marketing,115
+speech,198
+database,1021
+materials,250
+statistics,111
+database and data mining,0
+mathematics,96
+sustainability,45
+databases,408
+measurement,312
+SYSTEM,56
+dependability,114
+mechanical,82
+systems,3870
+design,1712
+mechanical engineering,6
+systems engineering,28
+design automation,15
+mechatronics,49
+technologies,1515
+development,1748
+media,1899
+technology,1405
+digital libraries,64
+medical imaging,51
+telecommunication,238
+distributed computing,142
+medicine,261
+telecommunications,91
+distributed systems,184
+microwave,31
+testing,297
+e-business,52
+middleware,278
+text mining,44
+e-commerce,98
+mobile,929
+theoretical computer science,10
+e-health,20
+mobile computing,120
+theory,780
+e-learning,84
+mobility,164
+trust,349
+economics,153
+model-driven development,18
+ubiquitous,464
+education,409
+modeling,942
+ubiquitous computing,140
+ehealth,17
+modelling,267
+USENIX,25
+elearning,5
+molecular biology,21
+verification,297
+electrical,117
+multi-agent systems,80
+video,356
+electrical engineering,33
+multimedia,514
+virtual reality,47
+electro-optics,0
+music,78
+virtualization,89
+electron devices,4
+nanotechnology,41
+visualization,331
+electronics,235
+natural language processing,100
+VLSI,149
+embedded systems,167
+navigation,81
+web,2017
+energy,249
+network,5100
+web 2.0,12
+engineering,1604
+network management,38
+web services,109
+english,6
+network security,73
+wireless,1242
+environment,1135
+networking,570
+wireless communication,179
+environmental engineering,11
+networks,2296
+wireless communications,69
+ethics,59
+neural networks,85
+wireless network,452
+evaluation,803
+neuroscience,41
+wireless networks,209
+

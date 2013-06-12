@@ -1,0 +1,85 @@
+#-*- coding: utf-8 -*-
+
+import urllib2
+from bs4 import BeautifulSoup
+
+out_file = open("./final.sql","w")
+
+xml_file = open("./xml_file_final.xml", "r")
+
+out_file.write("--DROP TABLE event;\n")
+out_file.write("CREATE TABLE event (eventid int, fullname text, location text, begindate text, finishdate text, weblink text, info text, PRIMARY KEY (eventid));\n")
+
+soup = BeautifulSoup(xml_file)
+rows = soup.findAll("row")
+
+c = 0
+for count in rows:
+  tempsoup = rows[c]
+	try:		
+		ei = tempsoup.findAll("field", {"name":"eventid"})
+		if not ei[0].contents[0].strip():
+			ei = "No info"
+		eventid = ei[0].contents[0].strip()
+	except Exception:
+		eventid = 0
+	try:		
+		fn = tempsoup.findAll("field", {"name":"fullname"})
+		s = fn[0].contents[0].strip()
+		fullname = s.decode('utf-8')
+		fullname = fullname.replace("'","_")
+	except Exception:
+		fullname = "No info"
+	try:		
+		l = tempsoup.findAll("field", {"name":"location"})
+		s = l[0].contents[0].strip()
+		location = s.decode('utf-8')	
+		location = location.replace("'","_")
+	except Exception:
+		location = "No info"	
+	try:		
+		bd = tempsoup.findAll("field", {"name":"begindate"})
+		s = bd[0].contents[0].strip()
+		begindate = s.decode('utf-8')
+	except Exception:
+		begindate = "No info"
+	try:		
+		fd = tempsoup.findAll("field", {"name":"finishdate"})
+		s = fd[0].contents[0].strip()
+		finishdate = s.decode('utf-8')
+	except Exception:
+		finishdate = "No info"
+	try:		
+		wl = tempsoup.findAll("field", {"name":"weblink"})
+		s = wl[0].contents[0].strip()
+		weblink = s.decode('utf-8')
+	except Exception:
+		weblink = "No info"
+	try:		
+		i = tempsoup.findAll("field", {"name":"info"})
+		s = i[0].contents[0].strip()
+		info = s.decode('utf-8')
+		info = info.replace("'","_")
+	except Exception:
+		info = "No info"
+	
+	with open("./final.sql","a") as out_file:
+		out_file.write("INSERT INTO event VALUES (")
+		out_file.write(eventid)
+		out_file.write(", '")
+		out_file.write(fullname)
+		out_file.write("', '")
+		out_file.write(location)
+		out_file.write("','")
+		out_file.write(begindate)
+		out_file.write("','")
+		out_file.write(finishdate)
+		out_file.write("','")
+		out_file.write(weblink)		
+		out_file.write("','")
+		out_file.write(info)	
+		out_file.write("');\n")
+		c=c+1		
+
+out_file.close()
+xml_file.close()
