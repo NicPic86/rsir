@@ -11,8 +11,6 @@ import java.util.Vector;
 
 public class Recurrence {
 	
-	
-	
 	public void writeFileEvents()throws SQLException, IOException{		
 		DBConnection dbconn = new DBConnection();
 		Connection conn = dbconn.getConnection();
@@ -25,12 +23,10 @@ public class Recurrence {
 		ResultSet rs = stm.executeQuery("SELECT eventid FROM event");
 		while (rs.next()){
 			String eventid = rs.getString("eventid");
-//			System.out.println("Cicle #: "+i+"\tID: "+eventid);
 			String stringFile = eventid+";\n";
 			bwEvents.write(stringFile);
 			i=i+1;
 			}
-//		System.out.println("Number of events: "+i);
 		}
 		catch (SQLException e){
 			System.out.println(e.getErrorCode());
@@ -39,8 +35,7 @@ public class Recurrence {
 			bwEvents.close();
 		}
 	}
-	
-	
+
 	
 	/**
 	 * @param args

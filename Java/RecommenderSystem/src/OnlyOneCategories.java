@@ -10,22 +10,10 @@ import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Vector;
 
-public class Creation {
+public class OnlyOneCategories {
 	
 	Random random = new Random();
 
-	public int[] insertCat(){
-		int indexarray = random.nextInt(7);
-		while (indexarray==0)
-			indexarray = random.nextInt(7);
-		int indexCategory[]= new int[indexarray];
-		for (int i=0; i<indexarray; i++){
-			indexCategory[i] = random.nextInt(292);
-			System.out.println("key array" + " " +indexCategory[i]);
-		}
-		return indexCategory;
-	}
-		
 	public Vector<String> dbCat()throws SQLException{
 		DBConnection dbconn = new DBConnection();
 		Connection conn = dbconn.getConnection();
@@ -43,25 +31,14 @@ public class Creation {
 		}
 		return dbCategories;
 	}
-	
-	public String [] merge(int [] key, Vector <String> dbCategories){
-		String [] userCategories = new String [key.length];
-		System.out.println("lunghezza" + " " + key.length);
-		for (int i = 0; i<key.length; i++){
-			userCategories[i] = dbCategories.get(key[i]);	
-			
-		}
-		return userCategories;
-	}
 
-	public Vector<String> getEvents(String []userCategories)throws SQLException{
+	public Vector<String> getEvents()throws SQLException{
 		DBConnection dbconn = new DBConnection();
 		Connection conn = dbconn.getConnection();
 		Vector <String> events = new Vector<String>();
 		try{
-			for (int i = 0; i < userCategories.length; i++){
 			Statement stm = conn.createStatement();
-			ResultSet rs = stm.executeQuery("SELECT idsevents FROM id_cat WHERE keyword ='"+userCategories[i]+"' ");
+			ResultSet rs = stm.executeQuery("SELECT idsevents FROM id_cat WHERE keyword ='wireless' ");
 			while (rs.next()){
 				String category = rs.getString("idsevents");
 				String [] tmp = category.split(",");
@@ -69,7 +46,6 @@ public class Creation {
 					events.add(tmp[random.nextInt(tmp.length)]);
 				}
 				}
-			}
 		}
 		catch (SQLException e){
 			System.out.println(e.getErrorCode());
@@ -80,18 +56,18 @@ public class Creation {
 	}
 			
 	public void writeFile(Vector <String> dbCategories) throws SQLException, IOException {
-		int i = 0;
-		int maxUser = 9000;
-		Creation creation = new Creation();
-		File scriptSQL = new File("./scriptUserEventRate.sql");
+		int i = 990;
+		int maxUser = 1200;
+		OnlyOneCategories only = new OnlyOneCategories();
+		File scriptSQL = new File("./scriptUserEventRateOnlyOne.sql");
 		FileWriter fwsql = new FileWriter(scriptSQL);
 		BufferedWriter bwsql = new BufferedWriter(fwsql);
-		String stringSQL = "--DROP TABLE rating; \n CREATE TABLE rating (userid bigint, eventid bigint, rate real);\n";
+		String stringSQL = "--DROP TABLE rating; \n CREATE TABLE onlyone (userid bigint, eventid bigint, rate real);\n";
 		bwsql.write(stringSQL);
 		String stmt = null;
 		String stmt2 = null;
-		File file = new File("./recommender.txt");
-		File file2 = new File("./user.txt");
+		File file = new File("./recommenderOnlyOne.txt");
+		File file2 = new File("./userOnlyOne.txt");
 		if (!(file.exists() || file2.exists())) {
 			file.createNewFile();
 			}
@@ -99,20 +75,20 @@ public class Creation {
 		FileWriter fw2 = new FileWriter(file2.getAbsoluteFile());
 		BufferedWriter bw = new BufferedWriter(fw);
 		BufferedWriter bw2 = new BufferedWriter(fw2);
+		Vector <String> tmpevents = only.getEvents();
+		Vector <String> events = new Vector<String>(new LinkedHashSet<String>(tmpevents));
+		System.out.println(events.size());
+
 		try {				
 			stmt2 = "username" + "\t\t" + "category \n"; 
 			bw2.write(stmt2);
 			System.out.println("Starting to write into the File.");
 			for (; i<maxUser; i++){
-				String [] tmp = creation.merge(creation.insertCat(), dbCategories);
-				Vector <String> tmpevents = creation.getEvents(tmp);
-				Vector <String> events = new Vector<String>(new LinkedHashSet<String>(tmpevents));
-				for (int count = 0; count <tmp.length; count ++){
-					stmt2 = i + "\t" +"\t\t"+"\t"+ tmp[count] + "\n";
+					stmt2 = i + "\t" +"\t\t"+"\t wireless \n";
 					bw2.write(stmt2);
-					}
 				double[] rate = {1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0};
-				for (int j=0; j<events.size(); j++){
+				int maxevent = random.nextInt(23);
+				for (int j=0; j<maxevent; j++){
 						int index = random.nextInt(9);
 						stmt = i+","+events.get(j)+","+rate[index]+"\n";	
 						bw.write(stmt);
@@ -130,7 +106,7 @@ public class Creation {
 	}
 	
 public static void main(String [] args)throws SQLException,IOException{
-		Creation creationMain = new Creation();
-		creationMain.writeFile(creationMain.dbCat());
+		OnlyOneCategories only = new OnlyOneCategories();
+		only.writeFile(only.dbCat());
 	}
 }
