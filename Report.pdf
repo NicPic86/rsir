@@ -1,0 +1,31 @@
+Project of Recommender System
+RECOMMENDER SCIENTIFIC EVENT
+Igor Ponzano, Simone Tritini
+
+Introduction
+The idea of this project is related to the site WikiCFP that collect a large number of events that take place in different part of the world. Our project recommends to the user some events that could be interesting and useful for him.
+Retrieving and structuring data
+The first part of the project was related to retrieving all the data that the administrators of WikiCFP give us. They give us a series of very well structured XML files. Then we write a script that allows us to extract the data from XML file and put it into a database. This script is implemented with Beautiful Soup that is a parser that reads a document and scan it. Through this scan the script is able to detect all the information that we set in the Soup object. The result is a SQL script that we use to fill the database with all the events that we have.
+About the data it is important to underline that we have a very well structured data and every event has its own information well defined (name, dates, location, link, information). 
+Another part related to the structure of the data is the creation of a series of scripts that compute the recurrence of an event and of the categories and their SQL scripts.
+Site
+The site is a good window of our idea or part of it. All the parts are developed based on the idea that site has to advice events or categories or something related to this world. The site is connected to the database and the users and the events are always downloaded from it so we work directly on the data.
+Recommender System
+The recommender system is based on Java and in particular Apache Mahout. Mahout is a Java library and give us a series of tool to compute recommender items.
+We use:
+-  slopeRecommender: this is the fastest one and get a set of events recommender for a quite small set of users;
+-	userSimilarityRecommender: this type of recommender retrieve all the events computed around user rating; 
+-	itemSimilarityRecommender: retrieve events based on the items that are in the matrix.
+All these recommender allow to set an interval of users/items where compute the recommended events, and we try with different interval of users.
+About itemSimilarity we try to use PearsonCorrelation and EuclideanCorrelation and we note that the events recommended change. The first one is the classical way to recommend something the second one use a series of metrics based on items and users.
+About userSimilarity we use PearsonCorrelation and we noted that it works better with a huge amount of data (a big matrix) and this recommender retrieve all events based on the users rating and in this sense preferences.
+All the recommender systems are runned in a local machine because it is needed a quite long amount of time and power. At the end of the recommendation the Java program writes an SQL script that it will be run on database, in this way the site remain fast.
+Problems
+-	huge amount of data: it is difficult to organize and manage more than 10000 events but we want to give a real idea of a recommender system and we wish to work in a real field of computer science;
+-	recommender system’s errors: sometimes the recommender systems give us some errors that are related to the library of Mahout so we had some trouble to compute the events;
+-	recommender data’s problem: structure of data and the size of the matrix sometime are a problem so we have to give to recommender a good set of data;
+-	PHP connection with recommender: up to now the recommender doesn’t start directly when someone click on a page also because the amount of data is very big and we decided to run the recommender on local machine and eventually put the results on database.
+Technology used
+-	HTML, PHP scripts, JavaScript, jQuery and Bootstrap Framework for the site;
+-	Python with Beautiful Soup library for structuring the data from XML file;
+-	Java and Apache Mahout Libraries for retrieving recommended events.
